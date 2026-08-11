@@ -4,157 +4,121 @@
 
 body {
     margin: 0;
-    padding: 0;
-    font-family: "Poppins", Arial, sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3, #fad0c4);
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-}
+    font-family: Arial, sans-serif;
+    text-align: center;
 
-/* Floating hearts */
-body::before,
-body::after {
-    content: "❤️  💕  💗  💖  💕";
-    position: fixed;
-    font-size: 25px;
-    opacity: 0.25;
-    animation: float 8s linear infinite;
-    white-space: nowrap;
-}
-
-body::before {
-    top: 10%;
-    left: -20%;
-}
-
-body::after {
-    bottom: 10%;
-    right: -20%;
-    animation-delay: 3s;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc);
 }
 
 .container {
     width: 90%;
-    max-width: 450px;
+    max-width: 430px;
     padding: 35px 25px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    animation: appear 1s ease;
+
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
-h1 {
-    font-size: 36px;
-    color: white;
-    margin-bottom: 20px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    animation: heartbeat 2s infinite;
-}
-
-.gif {
-    width: 220px;
-    max-width: 80%;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.btn {
-    margin-top: 25px;
+.couple {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.boy,
+.girl {
+    font-size: 75px;
+    animation: bounce 2s infinite;
+}
+
+.girl {
+    animation-delay: .3s;
+}
+
+.heart {
+    font-size: 35px;
+    animation: beat 1s infinite;
+}
+
+h1 {
+    color: white;
+    font-size: 34px;
+    margin: 10px 0;
+    text-shadow: 2px 3px 8px rgba(0,0,0,.25);
+}
+
+.text {
+    color: white;
+    font-size: 17px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
     gap: 15px;
+    margin-top: 25px;
 }
 
 button {
+    border: none;
     padding: 13px 28px;
+    border-radius: 30px;
     font-size: 18px;
     font-weight: bold;
-    border: none;
-    border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-}
-
-button:hover {
-    transform: scale(1.08);
 }
 
 button:first-child {
-    background: linear-gradient(135deg, #00c853, #69f0ae);
+    background: #ff0066;
     color: white;
+    box-shadow: 0 6px 15px rgba(255,0,102,.4);
 }
 
 #noBtn {
-    background: linear-gradient(135deg, #ff1744, #ff5252);
+    background: white;
+    color: #ff0066;
+}
+
+.bottom {
     color: white;
-    position: relative;
+    margin-top: 25px;
+    font-size: 13px;
 }
 
-button:active {
-    transform: scale(0.95);
+.hearts {
+    position: fixed;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    font-size: 25px;
+    word-spacing: 25px;
+    animation: float 3s infinite;
 }
 
-/* Animations */
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: scale(0.7) translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-
+@keyframes beat {
     50% {
-        transform: scale(1.05);
+        transform: scale(1.4);
+    }
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-10px);
     }
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-    }
-
-    100% {
-        transform: translateY(-120vh) rotate(360deg);
-    }
-}
-
-/* Mobile */
-@media (max-width: 500px) {
-
-    .container {
-        padding: 30px 18px;
-        border-radius: 25px;
-    }
-
-    h1 {
-        font-size: 29px;
-    }
-
-    .gif {
-        width: 190px;
-    }
-
-    button {
-        padding: 11px 23px;
-        font-size: 16px;
+    50% {
+        transform: translateY(15px);
     }
 }
